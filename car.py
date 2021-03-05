@@ -31,10 +31,11 @@ class Ford(Car):
 
     def __init__(self, name, color, gas_type, year, car_type):
         super().__init__(name, color, gas_type, year)
+        # protected attribute 
         self._car_type = car_type
     
     def get_car_type(self):
-        # Method to get the protected _car_type, but only avilible to it's class and subclasses 
+        # Method to get the protected _car_type, that is only avilible to it's class and subclasses 
         return f'This Ford is a {self._car_type}'
 
     def drive(self, location, resting_point):
@@ -83,7 +84,7 @@ class Maintenance:
     def mechanic(self, fee):
         self.fee = fee
 
-    def wash(self, ford, mercedes):
+    def wash_revenue(self, ford, mercedes):
         # implementing composition logic for classes
         self.ford.append(ford)
         self.mercedes.append(mercedes)
@@ -98,7 +99,7 @@ class Maintenance:
 maint_earning = Maintenance()
 her_car = Ford('fusion', 'blue', 'gasoline', 2010, 'sedan')
 his_car = Mercedes('Benz', 'white', 'gasoline', 2011, 'Suv')
-print(maint_earning.wash(her_car, his_car))
+print(maint_earning.wash_revenue(her_car, his_car))
 
 
 # her_car.__get_vin()
